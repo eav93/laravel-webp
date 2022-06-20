@@ -5,15 +5,16 @@ namespace Buglinjo\LaravelWebp;
 use Buglinjo\LaravelWebp\Exceptions\DriverIsNotSupportedException;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Http\File;
 
 class Webp
 {
     /**
-     * @param UploadedFile $image
+     * @param UploadedFile|File $image
      * @return Cwebp|PhpGD|Traits\WebpTrait|null
      * @throws DriverIsNotSupportedException
      */
-    public static function make(UploadedFile $image)
+    public static function make(UploadedFile|File $image)
     {
         $driver = Config::get('laravel-webp.default_driver');
         $availableDrivers = Config::get('laravel-webp.drivers');

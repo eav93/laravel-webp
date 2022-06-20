@@ -3,6 +3,7 @@
 namespace Buglinjo\LaravelWebp\Traits;
 
 use Illuminate\Http\UploadedFile;
+use Illuminate\Http\File;
 use Illuminate\Support\Facades\Config;
 
 trait WebpTrait
@@ -18,10 +19,10 @@ trait WebpTrait
     protected $quality;
 
     /**
-     * @param UploadedFile $image
+     * @param UploadedFile|File $image
      * @return $this
      */
-    public function make(UploadedFile $image): self
+    public function make(UploadedFile|File $image): self
     {
         $this->quality = Config::get('laravel-webp.default_quality');
         $this->image = $image;

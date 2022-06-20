@@ -5,14 +5,15 @@ namespace Buglinjo\LaravelWebp\Interfaces;
 
 use Exception;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Http\File;
 
 interface WebpInterface
 {
     /**
-     * @param UploadedFile $image
+     * @param UploadedFile|File $image
      * @return mixed
      */
-    public function make(UploadedFile $image);
+    public function make(UploadedFile|File $image);
 
     /**
      * @param $quality
